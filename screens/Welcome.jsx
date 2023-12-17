@@ -1,13 +1,12 @@
-import { Text, View, Image, ImageBackground } from "react-native";
+import { View, Image, ImageBackground } from "react-native";
 import React, { useEffect } from "react";
 
 const Welcome = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Navigate to the login page after 5 seconds
+      // Navigate to the login page after 7 seconds
       navigation.navigate("Login");
-      //   console.log("Moved to Login Page");
-    }, 5000);
+    }, 7000);
 
     return () => clearTimeout(timer); // Clear the timer on component unmount
   }, [navigation]);

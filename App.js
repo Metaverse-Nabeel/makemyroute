@@ -1,12 +1,17 @@
-import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Welcome from "./screens/Welcome";
+import Login from "./screens/Login";
 
+const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="bg-[#354689] text-white py-4 px-2 rounded">
-        Open up App.js to start working on your app!
-      </Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
