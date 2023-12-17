@@ -34,7 +34,10 @@ const Login = ({ navigation }) => {
         resizeMode="cover"
         className="flex-1 justify-center items-center"
       >
-        <View className="flex-1 mt-40 w-[90%] h-[80%] p-4">
+        <Text className="mt-40 text-white text-center text-3xl font-semibold">
+          Login
+        </Text>
+        <View className="flex-1 w-[90%] h-[80%] p-4">
           <Text className="text-white py-2 font-semibold">Email</Text>
           <TextInput
             className="py-2 px-4 rounded-lg text-white bg-gray-400"
