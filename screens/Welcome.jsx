@@ -4,9 +4,9 @@ import React, { useEffect } from "react";
 const Welcome = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Navigate to the login page after 7 seconds
+      // Navigate to the login page after 5 seconds
       navigation.navigate("Login");
-    }, 7000);
+    }, 5000);
 
     return () => clearTimeout(timer); // Clear the timer on component unmount
   }, [navigation]);
