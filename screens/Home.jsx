@@ -2,10 +2,11 @@ import {
   View,
   Text,
   ImageBackground,
-  DropDownPicker,
   TouchableOpacity,
+  TextInput,
 } from "react-native";
-// import Picker from "react-native-picker/picker";
+import RNPickerSelect from "react-native-picker-select";
+
 import React, { useState } from "react";
 
 const Home = ({ navigation }) => {
@@ -30,56 +31,76 @@ const Home = ({ navigation }) => {
     "Islamabad Capital Territory",
   ];
 
-  const handleSearch = () => {
-    // You can navigate to the next screen or perform actions based on user inputs
-    // For now, let's log the selected inputs
-    console.log("Category:", category);
-    console.log("City:", city);
-    console.log("Province:", province);
+  const go_to_Home = () => {
+    navigation.navigate("Details");
   };
 
   return (
     <ImageBackground
       source={require("../assets/images/app-start.png")}
       resizeMode="cover"
-      className="flex-1"
+      className="flex-1 justify-center"
     >
-      <View className="mt-12 p-4">
-        <Text className="text-white text-4xl font-semibold text-center">
-          Welcome Traveller !
-        </Text>
-        <Text className="text-white text-center">
-          Please provide requested information to get recommendations
-        </Text>
-        {/* <Picker
-          selectedValue={selectedValue}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-        >
-          {cities.map((c) => (
-            <Picker.Item label={c} value={c} />
-          ))}
-        </Picker> */}
-        {/* <DropDownPicker
-          items={categories}
-          placeholder="Select Category"
-          onChangeItem={(item) => setCategory(item.value)}
-        />
-        <DropDownPicker
-          items={cities.map((c) => ({ label: c, value: c }))}
-          placeholder="Select City"
-          onChangeItem={(item) => setCity(item.value)}
-        />
-        <DropDownPicker
-          items={provinces.map((p) => ({ label: p, value: p }))}
-          placeholder="Select Province"
-          onChangeItem={(item) => setProvince(item.value)}
+      <Text className="text-3xl font-bold text-white text-center">
+        Welcome Traveller!
+      </Text>
+      <Text className="text-lg text-white text-center tracking-wide">
+        Please provide requested infotmation to get recomendations
+      </Text>
+      <View className="bg-[#0ACF83]/50">
+        {/* Input 1 */}
+        <Text className="text-lg text-white font-bold">Category</Text>
+        {/* <TextInput
+          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
+          placeholder="Select"
+          value={category}
+          onChangeText={(text) => setCategory(text)}
         /> */}
-        <TouchableOpacity className="flex my-6" onPress={handleSearch}>
-          <Text className="py-4 px-6 text-center font-extrabold text-lg rounded-lg text-white bg-[#0ACF83]">
-            Search
-          </Text>
-        </TouchableOpacity>
+        <RNPickerSelect
+          className="bg-white rounded-lg h-[40px] px-3 text-white
+          "
+          // className="h-[40px] rounded-xl px-3"
+          placeholder="Select"
+          value={category}
+          items={categories}
+          onValueChange={(value) => setInput1Value(value)}
+        />
+        {/* <Text className="text-lg mb-1 mr-[220px] text-white font-bold">
+          City
+        </Text>
+        <TextInput
+          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
+          placeholder="Select"
+          value={city}
+          onChangeText={(text) => setCity(text)}
+        />
+        <RNPickerSelect
+          className="h-[40px] rounded-xl px-3"
+          value={city}
+          items={cities}
+          onValueChange={(value) => setCity(value)}
+        />
+        <Text className="text-lg mb-1 mr-[220px] text-white font-bold">
+          Province
+        </Text>
+        <TextInput
+          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
+          placeholder="Select"
+          value={province}
+          onChangeText={(text) => setProvince(text)}
+        />
+        <RNPickerSelect
+          className="h-[40px] rounded-xl px-3"
+          value={province}
+          items={provinces}
+          onValueChange={(value) => setProvince(value)}
+        /> */}
       </View>
+      <TouchableOpacity className="flex" onPress={go_to_Home}>
+        <Text className="py-4 px-6 text-center font-extrabold text-lg rounded-lg text-white bg-[#0ACF83]">
+          Let's Explore
+        </Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 };
