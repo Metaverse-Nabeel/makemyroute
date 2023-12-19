@@ -41,7 +41,7 @@ const Home = ({ navigation }) => {
   };
 
   const go_to_Home = () => {
-    navigation.navigate("Details");
+    navigation.navigate("Destinations");
   };
 
   return (
