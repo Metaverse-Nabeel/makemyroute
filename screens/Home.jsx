@@ -1,35 +1,44 @@
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-  TextInput,
-} from "react-native";
-import RNPickerSelect from "react-native-picker-select";
-
+import { View, Text, ImageBackground, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
+import DropDown from "../components/DropDown";
+
+const categories = [
+  { label: "Religious", value: "Religious" },
+  { label: "Mosque", value: "Mosque" },
+  { label: "Natural", value: "Natural" },
+  { label: "Mountain", value: "Mountain" },
+];
+
+const cities = [
+  { label: "Islamabad", value: "Islamabad" },
+  { label: "Hyderabad", value: "Hyderabad" },
+  { label: "Sialkot", value: "Sialkot" },
+  { label: "Multan", value: "Multan" },
+  { label: "Murree", value: "Murree" },
+];
+
+const provinces = [
+  { label: "Punjab", value: "Punjab" },
+  { label: "Balochistan", value: "Balochistan" },
+  { label: "Sindh", value: "Sindh" },
+  { label: "KPK", value: "KPK" },
+  { label: "ICT", value: "ICT" },
+];
 
 const Home = ({ navigation }) => {
   const [category, setCategory] = useState(null);
   const [city, setCity] = useState(null);
   const [province, setProvince] = useState(null);
 
-  const categories = [
-    { label: "Religious", value: "Religious" },
-    { label: "Mosque", value: "Mosque" },
-    { label: "Natural", value: "Natural" },
-    { label: "Mountain", value: "Mountain" },
-  ];
-
-  const cities = ["Islamabad", "Hyderabad", "Sialkot", "Multan", "Murree"];
-
-  const provinces = [
-    "Punjab",
-    "Balochistan",
-    "Sindh",
-    "KPK",
-    "Islamabad Capital Territory",
-  ];
+  const handleDropDownCategoryValueChange = (value) => {
+    setCategory(value);
+  };
+  const handleDropDownCityValueChange = (value) => {
+    setCity(value);
+  };
+  const handleDropDownProvinceValueChange = (value) => {
+    setProvince(value);
+  };
 
   const go_to_Home = () => {
     navigation.navigate("Details");
@@ -39,7 +48,7 @@ const Home = ({ navigation }) => {
     <ImageBackground
       source={require("../assets/images/app-start.png")}
       resizeMode="cover"
-      className="flex-1 justify-center"
+      className="flex-1 justify-center items-center"
     >
       <Text className="text-3xl font-bold text-white text-center">
         Welcome Traveller!
@@ -47,57 +56,22 @@ const Home = ({ navigation }) => {
       <Text className="text-lg text-white text-center tracking-wide">
         Please provide requested infotmation to get recomendations
       </Text>
-      <View className="bg-[#0ACF83]/50">
-        {/* Input 1 */}
-        <Text className="text-lg text-white font-bold">Category</Text>
-        {/* <TextInput
-          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
-          placeholder="Select"
-          value={category}
-          onChangeText={(text) => setCategory(text)}
-        /> */}
-        <RNPickerSelect
-          className="bg-white rounded-lg h-[40px] px-3 text-white
-          "
-          // className="h-[40px] rounded-xl px-3"
-          placeholder="Select"
-          value={category}
-          items={categories}
-          onValueChange={(value) => setInput1Value(value)}
+      <View className="bg-[#0ACF83]/50 w-[90%] rounded-xl py-4 my-4">
+        <Text className="text-lg text-white font-bold pl-5">Category</Text>
+        <DropDown
+          data={categories}
+          onValueChange={handleDropDownCategoryValueChange}
         />
-        {/* <Text className="text-lg mb-1 mr-[220px] text-white font-bold">
-          City
-        </Text>
-        <TextInput
-          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
-          placeholder="Select"
-          value={city}
-          onChangeText={(text) => setCity(text)}
+        <Text className="text-lg text-white font-bold pl-5">City</Text>
+        <DropDown data={cities} onValueChange={handleDropDownCityValueChange} />
+        <Text className="text-lg text-white font-bold pl-5">Province</Text>
+        <DropDown
+          data={provinces}
+          onValueChange={handleDropDownProvinceValueChange}
         />
-        <RNPickerSelect
-          className="h-[40px] rounded-xl px-3"
-          value={city}
-          items={cities}
-          onValueChange={(value) => setCity(value)}
-        />
-        <Text className="text-lg mb-1 mr-[220px] text-white font-bold">
-          Province
-        </Text>
-        <TextInput
-          className="bg-white rounded-lg h-[55px] -mb-2 px-3 text-black"
-          placeholder="Select"
-          value={province}
-          onChangeText={(text) => setProvince(text)}
-        />
-        <RNPickerSelect
-          className="h-[40px] rounded-xl px-3"
-          value={province}
-          items={provinces}
-          onValueChange={(value) => setProvince(value)}
-        /> */}
       </View>
-      <TouchableOpacity className="flex" onPress={go_to_Home}>
-        <Text className="py-4 px-6 text-center font-extrabold text-lg rounded-lg text-white bg-[#0ACF83]">
+      <TouchableOpacity className="flex mt-12" onPress={go_to_Home}>
+        <Text className="py-4 px-20 text-center font-extrabold text-lg rounded-md text-white bg-[#0ACF83]">
           Let's Explore
         </Text>
       </TouchableOpacity>
