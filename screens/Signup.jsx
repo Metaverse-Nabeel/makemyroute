@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {authReciever} from  "../firebase";
+import {createUserWithEmailAndPassword} from "@react-native-firebase/auth";
+
 import {
   Text,
   View,
@@ -14,13 +17,24 @@ const Signup = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError]=useState(false);
 
   const handleLogin = async () => {
     navigation.navigate("Login");
   };
 
-  const handleSignup = async () => {
-    navigation.navigate("Login");
+  const handleSignup = async (e) => {
+    if (username === "" || email === "" || password === "" || confirmPassword === "")
+    {
+      // setError (true);
+      ToastAndroid.show("Please Enter Required Field!", ToastAndroid.LONG);
+    }
+    else
+    {
+      const usercredential = await createUserWithEmailAndPassword(authReciever,email,password);
+      // setError(false);
+      navigation.navigate("Login");
+    }
   };
 
   return (
