@@ -45,6 +45,36 @@ const destinations = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
     title: "Haram Mosque",
   },
+  {
+    id: 8,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
+    title: "Haram Mosque",
+  },
+  {
+    id: 9,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
+    title: "Haram Mosque",
+  },
+  {
+    id: 10,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
+    title: "Haram Mosque",
+  },
+  {
+    id: 11,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
+    title: "Haram Mosque",
+  },
+  {
+    id: 12,
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1024px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg",
+    title: "Haram Mosque",
+  },
 ];
 
 const Destinations = () => {
