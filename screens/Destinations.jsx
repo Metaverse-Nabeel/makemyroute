@@ -1,50 +1,17 @@
-import { View, Text } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import DestinationCard from "../components/DestinationCard";
-
-const destinations = [
-  {
-    id: 1,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 2,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 3,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 4,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 5,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 6,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-  {
-    id: 7,
-    image: "../assets/images/app-start.png",
-    title: "Faisal Mosque",
-  },
-];
+import { destinations } from "../assets/images/dummyData/Data";
 
 const Destinations = () => {
   return (
-    <View className="flex flex-col justify-center items-center">
-      <DestinationCard />
-    </View>
+    <SafeAreaView className="flex-1">
+      <ScrollView className="bg-gray-200">
+        {destinations.map((destination) => (
+          <DestinationCard key={destination.id} destData={destination} />
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
