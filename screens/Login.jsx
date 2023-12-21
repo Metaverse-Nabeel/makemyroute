@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { authReciever } from "../firebase";
-import {signInWithEmailAndPassword} from "@react-native-firebase/auth"
+import { signInWithEmailAndPassword } from "@react-native-firebase/auth";
 import {
   Text,
   View,
@@ -14,46 +13,44 @@ import {
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError]=useState("");
+  const [error, setError] = useState("");
 
-  
-
-  const isEmailValid = (email) => 
-  {
+  const isEmailValid = (email) => {
     const emailRegX = /\S+@\S+\.\S+/;
-    return emailRegX.test(email)
-  }
+    return emailRegX.test(email);
+  };
 
-
-  const handleLogin = async () => {
+  const handleLogin = () => {
     // try {
     //   //   await auth().signInWithEmailAndPassword(email, password);
-      if (email === "" || password === "" )
-      {
-        // setError("Please Enter Required Information!");
-        ToastAndroid.show("Please Enter Required Information!", ToastAndroid.LONG);
-      }
-      else
-      {
-        if (!isEmailValid(email))
-        {
-          // setError ("Invalid Email Format !");
-          ToastAndroid.show("Invalid Email Format !", ToastAndroid.LONG);
-        }
-
-        try {
-          const userCredentialIdentifier = await signInWithEmailAndPassword(authReciever,email,password)
-          ToastAndroid.show("Login successful!", ToastAndroid.LONG);
-          navigation.navigate("Home");
-        } catch (error) { 
-          // setError ("Invalid Credentials !"); 
-          ToastAndroid.show("Invalid Credentials !", ToastAndroid.LONG);
-        }
-      }
-      
+    // if (email === "" || password === "") {
+    //   // setError("Please Enter Required Information!");
+    //   ToastAndroid.show(
+    //     "Please Enter Required Information!",
+    //     ToastAndroid.LONG
+    //   );
+    // } else {
+    //   if (!isEmailValid(email)) {
+    //     // setError ("Invalid Email Format !");
+    //     ToastAndroid.show("Invalid Email Format !", ToastAndroid.LONG);
+    //   }
+    //   try {
+    //     const userCredentialIdentifier = await signInWithEmailAndPassword(
+    //       authReciever,
+    //       email,
+    //       password
+    //     );
+    //     ToastAndroid.show("Login successful!", ToastAndroid.LONG);
+    //     navigation.navigate("Home");
+    //   } catch (error) {
+    //     // setError ("Invalid Credentials !");
+    //     ToastAndroid.show("Invalid Credentials !", ToastAndroid.LONG);
+    //   }
+    // }
     // } catch (error) {
     //   ToastAndroid.show(`Login Failed! ${error.message}`, ToastAndroid.LONG);
     // }
+    navigation.navigate("Home");
   };
 
   const handleSignup = async () => {
